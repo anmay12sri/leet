@@ -5,7 +5,8 @@ class Solution {
         int operation=0;
 
         for(int i=0;i<nums.length;i++){
-            operation+=Math.abs(mid-nums[i]);
+            int x=Math.abs(mid-nums[i]);
+            operation+=x;
         }
         return operation;
     }
