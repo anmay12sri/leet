@@ -6,6 +6,7 @@ class Solution {
                 return digits;
             }else if(digits[i]==9){
                  digits[i]=0;
+                 System.gc();
             }
         }
 
