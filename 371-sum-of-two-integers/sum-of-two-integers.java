@@ -6,7 +6,7 @@ class Solution {
           b=carry<<1;
           
       }
-      System.gc();
+     
       return a;
     }
 }
