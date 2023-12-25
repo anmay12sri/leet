@@ -4,7 +4,9 @@ class Solution {
           int carry=a&b;
           a=a^b;
           b=carry<<1;
+          
       }
+      System.gc();
       return a;
     }
 }
