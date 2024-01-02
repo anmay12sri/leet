@@ -1,15 +1,24 @@
 class Solution {
     public double average(int[] salary) {
         double sum=0;
-        double x=0;
+        int max=Integer.MIN_VALUE;
+        int min=Integer.MAX_VALUE;
+
         
-        Arrays.sort(salary);
+        
         for(int i=0;i<salary.length;i++){
-            sum+=salary[i];//10,000
-            x=sum-(salary[0]+salary[salary.length-1]);
+            sum+=salary[i];
+            if(salary[i]>max){
+                max=salary[i];
+            }
+            if(salary[i]<min){
+                min=salary[i];
+            }
+            
            
         }
-        return x/(salary.length-2);
+
+        return (sum-max-min)/(salary.length-2);
         
     }
 }
