@@ -10,8 +10,8 @@ class Solution {
        arr.add(nums[nums.length-1]);//last wala remaining tha 1,2,3
 
        if(arr.size()<3){
-           return arr.get(arr.size()-1);
+           return arr.get(arr.size()-1);//1,2 toh 2 ayega
        }
-       return arr.get(arr.size()-3);
+       return arr.get(arr.size()-3);//1 target wala aa jayega
     }
 }
