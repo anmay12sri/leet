@@ -5,7 +5,11 @@ class Solution {
 
         for(int i=0;i<nums.length;i++){
             x=(x*2+nums[i])%5;
-            list.add(x==0);
+            if(x==0){
+                list.add(true);
+            }else{
+                list.add(false);
+            }
         }
         return list;
     }
