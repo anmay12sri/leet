@@ -19,10 +19,9 @@ class Solution {
                 return list2;
             }
         }
-        if(list1==null)
+        if(list1==null){
             return list2;
-        else
-            return list1;    
-        
+        }
+        return list1;
     }
 }
