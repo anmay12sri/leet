@@ -3,8 +3,8 @@ class Solution {
         int count[]=new int[26];
         int sum=0;
         for(int i=0;i<s.length();i++){
-            count[s.charAt(i)-'a']++;
-            count[t.charAt(i)-'a']--;
+            count[s.charAt(i)-'a']++;//bab 2 1
+            count[t.charAt(i)-'a']--;//aba  1 2
         }
 
         for(int i:count){
@@ -12,6 +12,7 @@ class Solution {
               sum+=i;
             }
         }
+        System.gc();
         return sum;
     }
 }
