@@ -1,18 +1,21 @@
 class Solution {
     public int minSteps(String s, String t) {
-        int count[]=new int[26];
-        int sum=0;
+        int arr_s[]=new int[26];
+        int arr_t[]=new int[26];
+        int count=0;
+
         for(int i=0;i<s.length();i++){
-            count[s.charAt(i)-'a']++;//bab 2 1
-            count[t.charAt(i)-'a']--;//aba  1 2
+            arr_s[s.charAt(i)-'a']++;//bab 1 2
+            arr_t[t.charAt(i)-'a']++;// aba 2 1
+
+        
         }
 
-        for(int i:count){
-            if(i>=0){
-              sum+=i;
+        for(int i=0;i<26;i++){
+            if(arr_s[i]>arr_t[i]){
+               count+=arr_s[i]-arr_t[i]; 
             }
         }
-        System.gc();
-        return sum;
+        return count;
     }
 }
