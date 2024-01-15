@@ -1,36 +1,36 @@
 class Solution {
     public List<List<Integer>> findWinners(int[][] matches) {
-        int loses[]=new int[1000001];//[-1,0,1,0,0,0,0...]
-
+        int loses[]=new int[1000001];
+        
         for(int i=0;i<matches.length;i++){
             int win=matches[i][0];
             int lose=matches[i][1];
 
             if(loses[win]==0){
-                loses[win]=-1;//1  
+                loses[win]=-1;
             }
             if(loses[lose]==-1){
                 loses[lose]=1;
             }else{
-                loses[lose]++;//3
+                loses[lose]++;
             }
         }
+        List<Integer>zerolose=new ArrayList<>();
+        List<Integer>onelose=new ArrayList<>();
 
-        List<Integer>zeroloss=new ArrayList<>();
-        List<Integer>oneloss=new ArrayList<>();
-
-        List<List<Integer>>res=new ArrayList<>();
+        List<List<Integer>>result=new ArrayList<>();
 
         for(int i=0;i<loses.length;i++){
             if(loses[i]==-1){
-                zeroloss.add(i);
+                zerolose.add(i);
             }else if(loses[i]==1){
-                oneloss.add(i);
+                onelose.add(i);
             }
         }
-        res.add(zeroloss);
-        res.add(oneloss);
+        result.add(zerolose);
+        result.add(onelose);
 
-        return res;
+        return result;
+
     }
 }
