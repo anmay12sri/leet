@@ -5,18 +5,18 @@ class Solution {
 
         for(int i:nums1){
             set1.add(i);
-
         }
+
         for(int i:nums2){
-            if(set1.contains(i))set2.add(i);
+            if(set1.contains(i) )set2.add(i);
         }
 
-        int result[]=new int[set2.size()];
+        int arr[]=new int[set2.size()];
         int i=0;
         for(int x:set2){
-            result[i]=x;
+            arr[i]=x;
             i++;
         }
-        return result;
+        return arr;
     }
 }
