@@ -2,17 +2,20 @@ class Solution {
     public boolean isValid(String s) {
        Stack<Character>stack=new Stack<>();
 
-       for(char x:s.toCharArray()){
-           if(x=='('){
+       for(char c:s.toCharArray()){
+           if(c=='('){
                stack.push(')');
-           }else if(x=='{'){
+           }else if(c=='{'){
                stack.push('}');
-           }else if(x=='['){
+           }else if(c=='['){
                stack.push(']');
-           }else if(stack.isEmpty()||stack.pop()!=x){
+           }else if(stack.isEmpty()|| stack.pop()!=c){
                return false;
            }
-       } 
+       }
        return stack.isEmpty();
+       
+
+       
     }
 }
