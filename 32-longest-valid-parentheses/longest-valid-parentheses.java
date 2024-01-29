@@ -19,7 +19,7 @@ class Solution {
         }
         left=0;
         right=0;
-        for(int i=s.length()-1;i>=0;i--){
+        for(int i=s.length()-1;i>=0;i--){//last se bhi check krega
             if(s.charAt(i)=='('){
                left++;
                 }else{
