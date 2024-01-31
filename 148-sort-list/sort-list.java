@@ -9,10 +9,9 @@
  * }
  */
 class Solution {
-    public ListNode middle(ListNode head){
+    public static ListNode middle(ListNode head){
         ListNode slow=head;
         ListNode fast=head.next;
-
         while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
@@ -34,16 +33,18 @@ class Solution {
                 temp=temp.next;
             }
         }
-        if(left==null){
-            temp.next=right;
+            if(left==null){
+                temp.next=right;
+            }
+            if(right==null){
+                temp.next=left;
+            }
+            return dummy.next;
         }
-        if(right==null){
-            temp.next=left;
-        }
-        return dummy.next;
-    }
+
+    
     public ListNode sortList(ListNode head) {
-        if(head==null||head.next==null)return head;
+        if(head==null|| head.next==null)return head;
         ListNode mid=middle(head);
         ListNode left=head;
         ListNode right=mid.next;
