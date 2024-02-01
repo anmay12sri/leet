@@ -1,11 +1,10 @@
 class MyStack {
      Queue<Integer>q;
     public MyStack() {
-        q=new LinkedList<>();
+       q=new LinkedList<>(); 
     }
     
     public void push(int x) {
-        //int n=q.size();
         q.add(x);
         for(int i=0;i<q.size()-1;i++){
             q.add(q.peek());
