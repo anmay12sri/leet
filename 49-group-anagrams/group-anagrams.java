@@ -8,8 +8,8 @@ class Solution {
             String s= String.valueOf(c);//again string mein convert
         
         map.putIfAbsent(s,new ArrayList<String>());//aet into map
-        map.get(s).add(strs[i]);
+        map.get(s).add(strs[i]);//aet=>eat,ate,tea
         }
-        return new ArrayList<>(map.values());
+        return new ArrayList<>(map.values());//eat,ate,tea
     }
 }
