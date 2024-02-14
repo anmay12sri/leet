@@ -15,13 +15,23 @@
  */
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer>res=new ArrayList<>();
-        while(root!=null){
-        res.addAll(inorderTraversal(root.left));
-        res.add(root.val);
-        res.addAll(inorderTraversal(root.right));
-        return res;
+        Stack<TreeNode>st=new Stack<>();
+        List<Integer>list=new ArrayList<>();
+          TreeNode node=root;
+          
+        while(true){
+            if(node!=null){
+                 st.push(node);
+                node=node.left;
+                 
+            }else{
+                if(st.isEmpty())break;
+            
+            node=st.pop();
+            list.add(node.val);
+            node=node.right;
+            }
         }
-        return res;
+        return list;
     }
 }
