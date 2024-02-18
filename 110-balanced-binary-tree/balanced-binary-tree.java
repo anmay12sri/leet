@@ -15,16 +15,16 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        return dfstree(root)!=-1;
+      return dfstree(root)!=-1;  
     }
     int dfstree(TreeNode root){
         if(root==null)return 0;
-        int leftside=dfstree(root.left);
-        if(leftside==-1)return -1;
-        int rightside=dfstree(root.right);
-        if(rightside==-1)return -1;
+        int ls=dfstree(root.left);
+        if(ls==-1)return -1;
+        int rs=dfstree(root.right);
+        if(rs==-1)return -1;
 
-        if(Math.abs(leftside-rightside)>1)return -1;
-        return 1+Math.max(leftside,rightside);
+        if(Math.abs(ls-rs)>1) return -1;
+        return 1+Math.max(ls,rs);
     }
 }
