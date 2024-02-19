@@ -15,7 +15,7 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-      return dfstree(root)!=-1;  
+        return dfstree(root)!=-1;
     }
     int dfstree(TreeNode root){
         if(root==null)return 0;
@@ -24,7 +24,8 @@ class Solution {
         int rs=dfstree(root.right);
         if(rs==-1)return -1;
 
-        if(Math.abs(ls-rs)>1) return -1;
+        if((Math.abs(ls-rs)>1))return -1;
+
         return 1+Math.max(ls,rs);
     }
 }
