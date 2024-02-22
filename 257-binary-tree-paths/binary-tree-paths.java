@@ -20,9 +20,9 @@ class Solution {
         dfs(root,"",list);
         return list;
     }
-    public static void dfs(TreeNode root,String s,List<String>list){
-        if(root.left==null && root.right==null)list.add(s+root.val);
-        if(root.left!=null)dfs(root.left,s+root.val+"->",list);
-        if(root.right!=null)dfs(root.right,s +root.val+"->",list);
+    public static void dfs(TreeNode root,String s,List<String>lis){
+        if(root.left==null&& root.right==null)lis.add(s+root.val);
+        if(root.left!=null)dfs(root.left,s+root.val+"->",lis);
+        if(root.right!=null)dfs(root.right,s+root.val+"->",lis);
     }
 }
