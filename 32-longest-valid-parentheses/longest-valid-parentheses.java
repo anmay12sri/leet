@@ -11,30 +11,28 @@ class Solution {
                 right++;
             }
             if(left==right){
-                max=Math.max(max,left*2);
-            }else if(right>left){
-                right=0;
+            max=Math.max(left*2,max);
+            } else if(right>left){
                 left=0;
+                right=0;
             }
         }
         left=0;
         right=0;
-        for(int i=s.length()-1;i>=0;i--){//last se bhi check krega
-            if(s.charAt(i)=='('){
-               left++;
-                }else{
-               right++;
-                }
-                if(left==right){
-                    max=Math.max(max,left*2);
-                }else if(left>right){
-                    right=0;
-                    left=0;
-                }
+
+        for(int i=s.length()-1;i>=0;i--){
+            if(s.charAt(i)==')'){
+                right++;
+            }else{
+                left++;
+            }
+            if(left==right){
+                max=Math.max(max,right*2);
+            }else if(left>right){
+                left=0;
+                right=0;
+            }
         }
-                
-                                                                                              
         return max;
-    
-        }
     }
+}
