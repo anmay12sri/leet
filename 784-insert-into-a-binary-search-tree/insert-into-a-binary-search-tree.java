@@ -17,7 +17,6 @@ class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if(root==null)return new TreeNode(val);
         TreeNode curr=root;
-
         while(root!=null){
             if(curr.val<=val){
                 if(curr.right!=null){
@@ -30,7 +29,7 @@ class Solution {
                 if(curr.left!=null){
                     curr=curr.left;
                 }else{
-                    curr.left=new TreeNode (val);
+                    curr.left=new TreeNode(val);
                     break;
                 }
             }
