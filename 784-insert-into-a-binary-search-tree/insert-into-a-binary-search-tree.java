@@ -18,7 +18,7 @@ class Solution {
         if(root==null)return new TreeNode(val);
         TreeNode curr=root;
 
-        while(true){
+        while(root!=null){
             if(curr.val<=val){
                 if(curr.right!=null){
                     curr=curr.right;
