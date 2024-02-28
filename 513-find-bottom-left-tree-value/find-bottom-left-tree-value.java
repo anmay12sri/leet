@@ -14,20 +14,19 @@
  * }
  */
 class Solution {
-    int ans=0;
     int maxheight=Integer.MIN_VALUE;
+        int ans=0;
     public int findBottomLeftValue(TreeNode root) {
-        dfs(root,0);
-        return ans;
+         bottom(root,0);
+         return ans;
     }
-    public void dfs(TreeNode root,int height){
-        if(root==null)return ;
+    public void bottom(TreeNode root,int height){
+        if(root==null)return;
         if(height>maxheight){
             maxheight=height;
             ans=root.val;
         }
-        dfs(root.left,height+1);
-        dfs(root.right,height+1);
-
+        bottom(root.left,height+1);
+        bottom(root.right,height+1);
     }
 }
