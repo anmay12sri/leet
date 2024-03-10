@@ -7,13 +7,15 @@ class Solution {
             set1.add(i);
         }
         for(int i:nums2){
-            if(set1.contains(i))set2.add(i);
+            if(set1.contains(i)){
+                set2.add(i);
+            }
         }
         int arr[]=new int[set2.size()];
-        int i=0;
-        for(int x:set2){
-            arr[i]=x;
-            i++;
+        int x=0;
+        for(int i:set2){
+            arr[x]=i;
+            x++;
         }
         return arr;
     }
