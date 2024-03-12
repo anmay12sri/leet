@@ -13,13 +13,12 @@ class Solution {
         if(head==null)return head;
         ListNode curr=head;
         int sum=0;
-         
-
         while(curr!=null){
             sum+=curr.val;
             if(sum==0){
+                
                 head=curr.next;
-                return removeZeroSumSublists(head );
+                return removeZeroSumSublists(head);
             }
             curr=curr.next;
         }
