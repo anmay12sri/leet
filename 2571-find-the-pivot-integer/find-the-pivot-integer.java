@@ -5,19 +5,18 @@ class Solution {
         int i=1;
         int j=n;
         while(i<j){
-           if(sum1<sum2){
-            
-            sum1+=i;
-             i++;
-           }else if(sum1>sum2){
-            sum2+=j;
-            j--;
-           }else{
-            sum1+=i;
-            sum2+=j;
-            i++;
-            j--;
-           }
+            if(sum1<sum2){
+                sum1+=i;
+                i++;
+            }else if(sum1>sum2){
+                sum2+=j;
+                j--;
+            }else{
+                sum1+=i;
+                sum2+=j;
+                i++;
+                j--;
+            }
         }
         return sum1==sum2?i:-1;
     }
