@@ -1,15 +1,18 @@
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
-        int n = nums.length;
-        int result = 0;
-        int prefixSum = 0;
-        Map<Integer,Integer> map = new HashMap();
-        map.put(0,1);
-        for(int i=0; i<n; i++){
-            prefixSum += nums[i];
-            result += map.getOrDefault(prefixSum - goal, 0);
-            map.put(prefixSum, map.getOrDefault(prefixSum,0) + 1);
+        int count=0;
+        int presum=0;
+        Map<Integer,Integer>map=new HashMap<>();
+
+        for(int num:nums){
+            presum+=num;
+            if(presum==goal)count++;
+        
+        if(map.containsKey(presum-goal)){//3-2
+           count+=map.get(presum-goal);
         }
-        return result;
+        map.put(presum,map.getOrDefault(presum,0)+1);
+        }
+        return count;
     }
 }
