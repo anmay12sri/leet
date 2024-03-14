@@ -11,12 +11,11 @@
 class Solution {
     public ListNode removeZeroSumSublists(ListNode head) {
         if(head==null)return head;
-        ListNode curr=head;
         int sum=0;
+        ListNode curr=head;
         while(curr!=null){
             sum+=curr.val;
             if(sum==0){
-                
                 head=curr.next;
                 return removeZeroSumSublists(head);
             }
