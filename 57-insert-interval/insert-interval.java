@@ -1,36 +1,32 @@
-
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> ans = new ArrayList<>();
-        int start = newInterval[0], end = newInterval[1];
-        boolean inserted = false;
-        
-        for (int[] inv : intervals) {
-            int cstart = inv[0], cend = inv[1];
-            
-            if (cend < start || inserted) {
-                ans.add(new int[]{cstart, cend});
-                continue;
-            }
-            
-            start = Math.min(start, cstart);
-            if (end < cstart) {
-                ans.add(new int[]{start, end});
-                ans.add(new int[]{cstart, cend});
-                inserted = true;
-                continue;
-            }
-            
-            if (end <= cend) {
-                ans.add(new int[]{start, cend});
-                inserted = true;
-            }
+
+        int i = 0;
+        int  n = intervals.length;
+
+        while(i<n && intervals[i][1]<newInterval[0]){
+            ans.add(intervals[i++]);
         }
-        
-        if (!inserted) {
-            ans.add(new int[]{start, end});
+
+        int [] neww = newInterval;
+        while(i<n && intervals[i][0]<=newInterval[1])
+        {
+            neww[0] =  Math.min(intervals[i][0],neww[0] );
+            neww[1] =  Math.max(neww[1],intervals[i++][1] );
         }
-        
-        return ans.toArray(new int[ans.size()][]);
+        ans.add(neww);
+
+        while(i<n)
+        {
+            ans.add(intervals[i++]);
+        }
+
+        int[][] result = new int[ans.size()][2];
+        for (int j = 0; j < ans.size(); j++) {
+            result[j] = ans.get(j);
+        }
+
+        return result;
     }
 }
