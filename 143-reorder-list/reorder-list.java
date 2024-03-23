@@ -25,17 +25,16 @@ class Solution {
         ListNode l2=reverse(slow);
         merge(l1,l2);
     }
-    public static ListNode reverse( ListNode l2){
+    public static ListNode reverse(ListNode l2){
         if(l2==null)return null;
         ListNode prev=null;
         ListNode curr=l2;
-         
 
         while(curr!=null){
-         ListNode front=curr.next;
+          ListNode front=curr.next;
           curr.next=prev;
           prev=curr;
-          curr=front;  
+          curr=front;
         }
         return prev;
     }
