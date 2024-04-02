@@ -1,18 +1,33 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-       //200 size because there are 128 characters
-        int map1[]=new int[200];//egg
-        int map2[]=new int[200];//add
+
+        if(s.length()!=t.length()){
+            return false;
+        }
+        HashMap<Character,Character>sTot=new HashMap<>();
+        HashMap<Character,Character>tTos=new HashMap<>();
 
         for(int i=0;i<s.length();i++){
-            if(map1[s.charAt(i)]!=map2[t.charAt(i)])//means e!=d only e==a
-            return false;
-
-            map1[s.charAt(i)]=i+1;//e=1 a=1 at i=0
-            map2[t.charAt(i)]=i+1;//g=2 d=2 at i=1
-            //g=3 d=3 at i=2 so true because value is not unequal
-            //adb g=3 b=0
-        }
+            char c1=s.charAt(i);
+            char c2=t.charAt(i);
+            if(sTot.containsKey( c1)){
+                if(sTot.get(c1)!=c2){
+                    return false;
+                }
+                }else{
+                    sTot.put(c1,c2);
+                }
+             
+                if(tTos.containsKey(c2)){
+                    if(tTos.get(c2)!=c1){
+                        return false;
+                    }
+                    }else{
+                        tTos.put(c2,c1);
+                    }
+                }
+            
+        
         return true;
     }
 }
