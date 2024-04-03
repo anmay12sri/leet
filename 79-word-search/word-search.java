@@ -7,23 +7,25 @@ class Solution {
         }
         return false;
     }
-    boolean dfs(char board[][],String word,int i,int j,int ind){
-        if(ind==word.length())return true;
 
-        if(i<0||i>=board.length||j<0||j>=board[0].length||board[i][j]!=word.charAt(ind)){
+    public boolean dfs(char[][]board,String word,int i,int j,int ind){
+        if(ind==word.length())return true;//we got the length of word is same as ind
+
+        if(i<0||i>=board.length ||j<0||j>=board[0].length||board[i][j]!=word.charAt(ind)){
             return false;
         }
-        char temp=board[i][j];
+
+        char temp=board[i][j];//store the previous state
         board[i][j]=' ';
 
-        boolean found=dfs(board,word,i+1,j,ind+1)||
-                      dfs(board,word,i-1,j,ind+1)||
-                      dfs(board,word,i,j+1,ind+1)||
-                      dfs(board,word,i,j-1,ind+1);
+        boolean found= dfs(board,word,i+1,j,ind+1)||//down
+          dfs(board,word,i-1,j,ind+1)||//up
+          dfs(board,word,i,j+1,ind+1)||//right
+          dfs(board,word,i,j-1,ind+1);//left
+       
+       board[i][j]=temp;
 
-         board[i][j]=temp;
+       return found;
 
-         return found;             
     }
-    
 }
