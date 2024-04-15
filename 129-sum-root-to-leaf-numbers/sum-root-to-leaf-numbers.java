@@ -15,20 +15,20 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return  rootleaf(root,"");
+        return rootleaf(root,"");
     }
-    public  static int rootleaf(TreeNode root,String ans){
-        if(root.left==null&&root.right==null){
-            ans=ans+root.val;
-            return Integer.parseInt(ans);
+    public static int  rootleaf(TreeNode root,String res){
+        if(root.left==null && root.right==null){
+            res=res+root.val;
+            return Integer.parseInt(res);
         }
         int l=0;
         int r=0;
         if(root.left!=null){
-              l=rootleaf(root.left,ans+root.val);
+            l=rootleaf(root.left,res+root.val);
         }
         if(root.right!=null){
-              r=rootleaf(root.right,ans+root.val);
+            r=rootleaf(root.right,res+root.val);
         }
         return l+r;
     }
