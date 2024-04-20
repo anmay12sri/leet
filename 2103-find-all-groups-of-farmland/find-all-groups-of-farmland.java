@@ -15,19 +15,18 @@ class Solution {
             }
         }
         return list.toArray(new int[0][0]);
-
     }
-    public void dfs(int[][]land,int i,int j){
+    public void dfs(int land[][],int i,int j){
         if(i<0||i>=land.length||j<0||j>=land[0].length||land[i][j]==0){
             return;
         }
         land[i][j]=0;
         dfs(land,i+1,j);
         dfs(land,i-1,j);
-        dfs(land,i,j-1);
         dfs(land,i,j+1);
+        dfs(land,i,j-1);
 
-        x=Math.max(i,x);
-        y=Math.max(j,y);
+        x=Math.max(x,i);
+        y=Math.max(y,j);
     }
 }
