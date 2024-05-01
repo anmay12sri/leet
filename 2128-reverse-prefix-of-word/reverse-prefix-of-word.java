@@ -7,16 +7,16 @@ class Solution {
                 break;
             }
         }
-       char[] charArray = word.toCharArray();
-        
-        int j = 0;
-        while (j <= x) {
-            char temp = charArray[j];
-            charArray[j] = charArray[x];
-            charArray[x] = temp;
+        char c[]=word.toCharArray();
+
+        int j=0;
+        while(j<x){
+            char temp=c[j];
+            c[j]=c[x];
+            c[x]=temp;
             j++;
             x--;
         }
-        return new String(charArray);
+        return new String(c);
     }
 }
