@@ -10,8 +10,29 @@
  */
 class Solution {
     public ListNode removeNodes(ListNode head) {
-        if(head==null)return null;
-        head.next=removeNodes(head.next);
-        return head.next!=null && head.val<head.next.val?head.next:head;
+       Stack<ListNode>st=new Stack<>();
+       ListNode curr=head;
+       while(curr!=null){
+        st.push(curr);
+        curr=curr.next;
+       }
+
+       curr=st.pop();
+       int max=curr.val;
+       ListNode resultList=new ListNode(max);
+
+       while(!st.isEmpty()){
+        curr=st.pop();
+        if(curr.val<max){
+            continue;
+        }else{
+            ListNode newNode=new ListNode(curr.val);
+            newNode.next=resultList;
+            resultList=newNode;
+            max=curr.val;
+        }
+       }
+       return resultList;
+        
     }
 }
