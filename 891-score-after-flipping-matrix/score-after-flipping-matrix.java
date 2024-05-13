@@ -1,21 +1,37 @@
 class Solution {
     public int matrixScore(int[][] grid) {
-        int n = grid.length, m = grid[0].length;
-        int res = (1 << (m - 1)) * n;  
-
-        for (int j = 1; j < m; ++j) {
-            int val = 1 << (m - 1 - j);
-            int set = 0;
-
-            for (int i = 0; i < n; ++i) {
-                if (grid[i][j] == grid[i][0]) {
-                    set++;
+        for(int i=0; i<grid.length; i++){
+            if(grid[i][0] == 0){
+                for(int j=0; j<grid[0].length; j++){
+                    grid[i][j] = 1 - grid[i][j];
                 }
             }
-
-            res += Math.max(set, n - set) * val;
         }
 
-        return res;
+        for(int j=1; j<grid[0].length; j++){
+            int count = 0;
+            for(int i=0; i<grid.length; i++){
+                if(grid[i][j] == 1){
+                    count++;
+                }
+            }
+            if(count*2 < grid.length){
+                for(int i=0; i<grid.length; i++){
+                    grid[i][j] = 1 - grid[i][j];
+                }
+            }
+        }
+
+        int sum = 0;
+
+        for(int i=0; i<grid.length; i++){
+            int row = 0;
+            for(int j=0; j<grid[0].length; j++){
+                row = row*2 + grid[i][j];
+            }
+            sum += row;
+        }
+
+        return sum;
     }
 }
