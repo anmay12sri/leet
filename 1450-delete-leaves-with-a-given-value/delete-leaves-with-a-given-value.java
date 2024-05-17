@@ -15,17 +15,26 @@
  */
 class Solution {
     public TreeNode removeLeafNodes(TreeNode root, int target) {
-        return helper(root,target);
+        // return helper(root,target);
+        if(root==null)return null;
+        root.left=removeLeafNodes(root.left,target);
+        root.right=removeLeafNodes(root.right,target);
+
+        if(root.left==null && root.right==null && root.val==target){
+            return null;
+        }
+        return root;
+
     }
-    public TreeNode helper(TreeNode root,int target){
-   if(root==null)return null;
-   root.left=helper(root.left,target);
-   root.right=helper(root.right,target);
+//     public TreeNode helper(TreeNode root,int target){
+//    if(root==null)return null;
+//    root.left=helper(root.left,target);
+//    root.right=helper(root.right,target);
    
-   if(root.left==null && root.right==null && root.val==target){
-    return null;
-   }
-   return root;
+//    if(root.left==null && root.right==null && root.val==target){
+//     return null;
+//    }
+//    return root;
      
-    }
+    
 }
