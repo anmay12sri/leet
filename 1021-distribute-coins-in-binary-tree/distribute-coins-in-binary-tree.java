@@ -15,17 +15,17 @@
  */
 class Solution {
     int move=0;
-    public int dfs(TreeNode root){
+    public int helper(TreeNode root){
         if(root==null){
             return 0;
         }
-        int left=dfs(root.left);
-        int right=dfs(root.right);
+        int left=helper(root.left);
+        int right=helper(root.right);
         move+=Math.abs(left)+Math.abs(right);
         return root.val+left+right-1;
     }
     public int distributeCoins(TreeNode root) {
-       dfs(root);
+       helper(root);
        return move; 
         
     }
