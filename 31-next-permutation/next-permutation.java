@@ -3,6 +3,7 @@ class Solution {
         int n=nums.length;
         int ind1=-1;
         int ind2=-1;
+
         for(int i=n-2;i>=0;i--){
             if(nums[i]<nums[i+1]){
                 ind1=i;
@@ -10,18 +11,16 @@ class Solution {
             }
         }
         if(ind1==-1){
-        reverse(nums,0);
-        }
-        else{
-        for(int i=n-1;i>=0;i--){
-            if(nums[ind1]<nums[i]){
-                ind2=i;
-                break;
+            reverse(nums,0);
+        }else{
+            for(int i=n-1;i>=0;i--){
+                if(nums[ind1]<nums[i]){
+                    ind2=i;
+                    break;
+                }
             }
-        }
             swap(nums,ind1,ind2);
             reverse(nums,ind1+1);
-
         }
     }
     public void swap(int nums[],int i,int j){
@@ -29,10 +28,10 @@ class Solution {
         nums[i]=nums[j];
         nums[j]=temp;
     }
-    public void reverse(int nums[],int start){
-        int i=start;
+    public void reverse(int nums[],int s){
+        int i=s;
         int j=nums.length-1;
-        while(i<j){
+        while(i<=j){
             swap(nums,i,j);
             i++;
             j--;
