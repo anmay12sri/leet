@@ -1,23 +1,25 @@
 class Solution {
     public int search(int[] nums, int target) {
-        int s=0;
-        int e=nums.length-1;
+        int l=0;
+        int u=nums.length-1;
 
-        while(s<=e){
-            int mid=s+(e-s)/2;
-            if(nums[mid]==target)return mid;
+        while(l<=u){
+            int mid=l+(u-l)/2;
+            if(nums[mid]==target){
+                return mid;
 
-            if(nums[s]<=nums[mid]){
-                if(nums[s]<=target && target<=nums[mid]){
-                    e=mid-1;
+            }
+            else if(nums[l]<=nums[mid]){
+                if(nums[l]<=target && target<=nums[mid]){
+                    u=mid-1;
                 }else{
-                    s=mid+1;
+                    l=mid+1;
                 }
             }else{
-                if(nums[mid+1]<=target && target<=nums[e]){
-                    s=mid+1;
+                if(nums[mid]<=target && target<=nums[u]){
+                    l=mid+1;
                 }else{
-                    e=mid-1;
+                    u=mid-1;
                 }
             }
         }
