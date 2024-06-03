@@ -5,10 +5,13 @@ class Solution {
         int i=0;
         int j=0;
         while(i<x && j<y){
-           if(s.charAt(i)==t.charAt(j))
+           if(s.charAt(i)==t.charAt(j)){
             j++;
             i++;
            
+        }else{
+            i++;
+        }
         }
         return y-j;
     }
