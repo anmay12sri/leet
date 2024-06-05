@@ -18,9 +18,10 @@ class Solution {
             if(arr[l]>0){
                 Character ch=(char)(l+'a');
                 for(int i=0;i<arr[l];i++){
-                    list.add(""+ ch);
+                    list.add(""+ch);
                 }
             }
+
         }
         return list;
     }
