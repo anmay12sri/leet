@@ -1,37 +1,33 @@
 class Solution {
     public int waysToMakeFair(int[] nums) {
-        int e=0,o=0;//2,1,6,4
+        int e=0,o=0;
+
         for(int i=0;i<nums.length;i++){
-            if(i%2==0){
-                e+=nums[i];//8
-            }else{
-                o+=nums[i];//5
-            }
-
-
+             if(i%2==0){
+                e+=nums[i];
+             }else{
+                o+=nums[i];
+             }
         }
-        int prevEven=0;//2 8
-        int prevOdd=0;//1
+        int prevEven=0;
+        int prevOdd=0;
         int count=0;
 
         for(int i=0;i<nums.length;i++){
             if(i%2==0){
-                e-=nums[i];//6 0
-                if(e+prevOdd==o+prevEven){//6==5 1!=6
+                e-=nums[i];
+                if(prevEven+o==prevOdd+e){
                     count++;
                 }
-                    prevEven+=nums[i];//
-                
+                prevEven+=nums[i];
             }else{
-                o-=nums[i];//4 0
-                if(o+prevEven==e+prevOdd){//4+2==6+0 8==6+1 no
-                    count++;//1
-                } 
-                    prevOdd+=nums[i];//1 5
-                
+                o-=nums[i];
+                if(prevOdd+e==prevEven+o){
+                    count++;
+                }
+                prevOdd+=nums[i];
             }
         }
-        return count;//1
-
+        return count;
     }
 }
