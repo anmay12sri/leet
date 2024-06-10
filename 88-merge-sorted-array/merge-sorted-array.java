@@ -1,7 +1,11 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+       
+
+      
        int ind1=m-1;
        int ind2=n-1;
+
        int merge=m+n-1;
 
        while(ind1>=0 && ind2>=0){
