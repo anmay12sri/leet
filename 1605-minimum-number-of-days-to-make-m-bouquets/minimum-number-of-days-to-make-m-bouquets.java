@@ -17,7 +17,7 @@ class Solution {
     }
     public int minDays(int[] bloomDay, int m, int k) {
          if (bloomDay == null || bloomDay.length == 0 || m * k > bloomDay.length) {
-            return -1; // Impossible to make the required bouquets
+            return -1;  
         }
       int start = Integer.MAX_VALUE;
         int end = Integer.MIN_VALUE;
