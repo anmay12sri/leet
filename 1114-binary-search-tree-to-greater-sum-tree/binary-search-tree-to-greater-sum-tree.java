@@ -21,6 +21,7 @@ class Solution {
     }
     public void reverse(TreeNode root){
         if(root==null)return;
+
         reverse(root.right);
         sum+=root.val;
         root.val=sum;
