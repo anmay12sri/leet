@@ -9,12 +9,13 @@ class Solution {
     //    return res;
 
 
-    String word[]=s.split("\\s+");
-    String res="";
-    for(String w:word){
-        if(res=="")res=w;
-        else res=w+" "+res;
-    }
-    return res;
+     String st[]=s.trim().split("\\s+");
+
+     String res="";
+
+     for(int i=st.length-1;i>=0;i--){
+        res+=st[i]+" ";
+     }
+     return res.trim();
     }
 }
