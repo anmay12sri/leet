@@ -15,17 +15,21 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        if(root==null)return null;
-        invert(root);
-        return root;
+          invert(root);
+          return root;
     }
-    public static void invert(TreeNode root){
-        if(root==null)return;
+    public TreeNode invert(TreeNode root){
+        if(root==null){
+            return null;
+        }
+         
         TreeNode temp=root.left;
         root.left=root.right;
         root.right=temp;
+        root.left=invert(root.left);
+        root.right=invert(root.right);
 
-        invert(root.left);
-        invert(root.right);
+
+        return root;
     }
 }
