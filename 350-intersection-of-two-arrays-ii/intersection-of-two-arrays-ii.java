@@ -3,25 +3,26 @@ class Solution {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
 
-        List<Integer>list=new  ArrayList<>();
         int i=0,j=0;
+        List<Integer>list=new ArrayList<>();
 
-        while(i<nums1.length && j<nums2.length ){
+        while(i<nums1.length && j<nums2.length){
             if(nums1[i]<nums2[j]){
-                i++;
+              i++;
             }else if(nums1[i]>nums2[j]){
                 j++;
-            }else {
+            }else{
                 list.add(nums1[i]);
                 i++;
                 j++;
+            
             }
         }
-        int res[]=new int[list.size()];
         int k=0;
-        while(k<list.size()){
-            res[k]=list.get(k);
-            k++;
+        int res[]=new int[list.size()];
+        while(k<res.length){
+        res[k]=list.get(k);
+        k++;
         }
         return res;
     }
