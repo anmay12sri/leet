@@ -5,9 +5,9 @@ class Solution {
         Arrays.sort(nums);
         int res=Integer.MAX_VALUE;
 
-        for(int i=0;i<4;i++){
-            res=Math.min(res,nums[n-1-3+i]-nums[i]);
-        }
+         
+            res=Math.min(Math.min(nums[n-1]-nums[3],nums[n-2]-nums[2]),Math.min(nums[n-3]-nums[1],nums[n-4]-nums[0]));
+        
         
         return res;
     }
