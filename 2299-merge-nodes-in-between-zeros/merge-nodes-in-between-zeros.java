@@ -10,22 +10,24 @@
  */
 class Solution {
     public ListNode mergeNodes(ListNode head) {
-        ListNode curr=head.next;
         ListNode originalhead=head;
+        ListNode curr=head.next;
         int sum=0;
 
         while(curr!=null){
             if(curr.val==0){
                 head.val=sum;
                 sum=0;
-              if(curr.next!=null){
-                head=head.next;
-              }
+                if(curr.next!=null){
+                    head=head.next;
+                }
+
             }
             sum+=curr.val;
             curr=curr.next;
         }
         head.next=null;
         return originalhead;
+
     }
 }
