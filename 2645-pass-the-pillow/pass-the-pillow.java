@@ -1,17 +1,13 @@
 class Solution {
     public int passThePillow(int n, int time) {
-       int i=1;
+         int fullround=time/(n-1);
+         int timeleft=time%(n-1);
 
-       while(time>0){
-        while(i<n && time>0){
-            i++;
-            time--;
-        }
-        while(i>1 && time>0){
-            i--;
-            time--;
-        }
-       }
-       return i;
+         if(fullround%2==0){
+            return timeleft+1;
+         }else{
+            return n-timeleft;
+         }
+        //  return -1;
     }
 }
