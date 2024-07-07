@@ -1,11 +1,11 @@
 class Solution {
-    public int numWaterBottles(int numsBottles, int numsExchange) {
+    public int numWaterBottles(int numBottle, int numExchange) {
         int consumed=0;
-        while(numsBottles>=numsExchange){
-            consumed+=numsExchange;
-            numsBottles-=numsExchange;
-            numsBottles+=1;
+        while(numBottle>=numExchange){
+            consumed+=numExchange;
+            numBottle-=numExchange;
+            numBottle+=1;
         }
-        return consumed+numsBottles;
+        return consumed+numBottle;
     }
 }
