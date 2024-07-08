@@ -8,11 +8,9 @@ class Solution {
         int i=0;
 
         while(list.size()>1){
-            int idx=(i+k-1)% list.size();
-            list.remove(idx);
-            i=idx;
-            
-
+            int ind=(i+k-1)%list.size();
+            list.remove(ind);
+            i=ind;
         }
         return list.get(0);
     }
