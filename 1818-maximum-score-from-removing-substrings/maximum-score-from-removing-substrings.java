@@ -23,13 +23,13 @@ class Solution {
         String maxst = (x > y) ? "ab" : "ba";
         String minst = (x > y) ? "ba" : "ab";
 
-        // Remove the substring that gives the higher score first
+        
         String temp_f = removeSubstr(s, maxst);
         int L = temp_f.length();
         int charrem = n - L;
         score += (charrem / 2) * Math.max(x, y);
 
-        // Remove the substring that gives the lower score second
+         
         String temp_s = removeSubstr(temp_f, minst);
         charrem = L - temp_s.length();
         score += (charrem / 2) * Math.min(x, y);
