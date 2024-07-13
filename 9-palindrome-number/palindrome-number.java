@@ -1,19 +1,17 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        if(x<0 || (x!=0 && x%10==0)){
-            return false;
+        if(x<0)return false;
+
+        int y=x;
+        int rev=0;
+        while(y!=0){
+            int z=y%10;
+            rev=rev*10+z;
+            y/=10;
         }
-       int rev=0;
-       int y=x;
-       int z=0;
-       while(x!=0){
-          z=x%10;
-          rev=rev*10+z;
-          x/=10;
-       } 
-       if(rev==y){
-           return true;
-       }
-       return false;
+        if(rev==x){
+            return true;
+        }
+        return false;
     }
 }
