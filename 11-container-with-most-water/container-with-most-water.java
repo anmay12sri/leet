@@ -3,15 +3,14 @@ class Solution {
         int l=0;
         int r=height.length-1;
         int max=Integer.MIN_VALUE;
-        // int curr=0;
 
         while(l<r){
-             int curr=Math.min(height[l],height[r])*(r-l);
-              max=Math.max(max,curr);
+            int curr=Math.min(height[l],height[r])*(r-l);
+            max=Math.max(curr,max);
             if(height[l]<height[r]){
                 l++;
             }else{
-            r--;
+                r--;
             }
         }
         return max;
