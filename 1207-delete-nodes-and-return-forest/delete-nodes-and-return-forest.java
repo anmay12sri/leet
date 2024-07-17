@@ -23,9 +23,8 @@ class Solution {
         if(!set.contains(root.val))list.add(root);
         dfs(root,list,set);
         return list;
-
     }
-    private TreeNode dfs(TreeNode root,List<TreeNode>list,Set<Integer>set){
+    public TreeNode dfs(TreeNode root,List<TreeNode>list,Set<Integer>set){
         if(root==null){
             return null;
         }
@@ -33,9 +32,14 @@ class Solution {
         root.right=dfs(root.right,list,set);
 
         if(set.contains(root.val)){
-            if(root.left!=null)list.add(root.left);
-            if(root.right!=null)list.add(root.right);
+            if(root.left!=null){
+                list.add(root.left);
+            }
+            if(root.right!=null){
+                list.add(root.right);
+            } 
             return null;
+            
         }
         return root;
     }
