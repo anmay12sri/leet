@@ -10,12 +10,12 @@ class Solution {
             }else{
                 right++;
             }
-            if(left==right){
+         if(left==right){
             max=Math.max(left*2,max);
-            } else if(right>left){
-                left=0;
-                right=0;
-            }
+         }else if(right>left){
+            left=0;
+            right=0;
+         }
         }
         left=0;
         right=0;
@@ -26,7 +26,7 @@ class Solution {
             }else{
                 left++;
             }
-            if(left==right){
+            if(right==left){
                 max=Math.max(max,right*2);
             }else if(left>right){
                 left=0;
@@ -34,5 +34,6 @@ class Solution {
             }
         }
         return max;
+        
     }
 }
