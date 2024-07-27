@@ -16,4 +16,5 @@ class Solution {
             backtrack(list,curr+')',open,close+1,n);
         }
     }
+
 }
