@@ -9,18 +9,18 @@ class Solution {
             int j=i+1;
             int k=nums.length-1;
             while(j<k){
-                int sum=nums[j]+nums[k];
-                if(sum==(-nums[i])){
-                   list.add(Arrays.asList(nums[i],nums[j],nums[k]));
-                   j++;
-                   k--;
-                }else if(sum>-nums[i]){
+                if(nums[j]+nums[k]==(-nums[i])){
+                    list.add(Arrays.asList(nums[i],nums[j],nums[k]));
+                    j++;
                     k--;
-                }else if(sum<-nums[i]){
+                }else if((nums[j]+nums[k])>(-nums[i])){
+                    k--;
+                }else{
                     j++;
                 }
             }
         }
         return new ArrayList<>(list);
+
     }
 }
