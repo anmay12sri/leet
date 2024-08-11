@@ -1,8 +1,8 @@
 class Solution {
     public int finalPositionOfSnake(int n, List<String> commands) {
-         int count=0;
-        int x=commands.size();
-        for(int i=0;i<x;i++){
+        int count=0;
+
+        for(int i=0;i<commands.size();i++){
             String command=commands.get(i);
             if(command.equals("RIGHT")){
                 count++;
