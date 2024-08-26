@@ -19,9 +19,10 @@ class Node {
 
 class Solution {
     public List<Integer> postorder(Node root) {
-        List<Integer>list=new ArrayList<>();
-        helper(root,list);
-        return list;
+       List<Integer>list=new ArrayList<>();
+       helper(root,list);
+       return list;
+
     }
     public static void helper(Node root,List<Integer>list){
         if(root==null)return;
