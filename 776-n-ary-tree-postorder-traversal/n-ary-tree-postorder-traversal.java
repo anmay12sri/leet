@@ -18,14 +18,18 @@ class Node {
 */
 
 class Solution {
-    List<Integer>list=new ArrayList<>();
     public List<Integer> postorder(Node root) {
-         
-        if(root==null)return list;
+        List<Integer>list=new ArrayList<>();
+        helper(root,list);
+        return list;
+    }
+    public static void helper(Node root,List<Integer>list){
+        if(root==null)return;
+
         for(Node temp:root.children){
-            postorder(temp);
+            helper(temp,list);
         }
         list.add(root.val);
-        return list;
+        
     }
 }
