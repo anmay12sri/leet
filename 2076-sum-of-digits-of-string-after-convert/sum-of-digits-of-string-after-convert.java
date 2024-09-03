@@ -1,27 +1,23 @@
 class Solution {
     public int getLucky(String s, int k) {
         int sum=0;
-         
         for(int i=0;i<s.length();i++){
-            int diff = s.charAt(i) - 'a'+1;
-            // String st = Integer.toString(diff);
-            while(diff>0){
-                sum+=diff%10;
-                diff/=10;
-            }
-            
+          int x=s.charAt(i)-'a'+1;
+
+          while(x>0){
+            sum+=x%10;
+            x/=10;
+          }
+
         }
-        // String st=sb.toString();
-        while (k-->1){// 1 baar pehle hi sum done hai
-        int newsum=0;
-               
-             while(sum>0){
-                newsum+=sum%10;
-                sum/=10;
-             }
-            //  st=Integer.toString(sum);
-            sum=newsum;
-             
+        while(k-->1){
+          int nsum=0;
+          while(sum>0){
+            nsum+=sum%10;
+            sum/=10;
+
+          } 
+          sum=nsum;
         }
         return sum;
     }
