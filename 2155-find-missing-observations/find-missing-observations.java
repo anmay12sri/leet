@@ -18,8 +18,11 @@ class Solution {
 
         int res[]=new int[n];
 
-        for(int i=0;i<n;i++){
-            res[i]=base+(i<remainder?1:0);
+        for(int i=0;i<remainder;i++){
+            res[i]=base+1;
+        }
+        for(int i=remainder;i<n;i++){
+            res[i]=base;
         }
         return res;
     }
