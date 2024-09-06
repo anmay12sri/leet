@@ -17,15 +17,15 @@ class Solution {
         ListNode dummy=new ListNode(-1);
         dummy.next=head;
         ListNode prev=dummy;
-        ListNode temp=head;
+        ListNode curr=head;
 
-        while(temp!=null){
-            if(set.contains(temp.val)){
-                prev.next=temp.next;
+        while(curr!=null){
+            if(set.contains(curr.val)){
+                prev.next=curr.next;
             }else{
-                prev=temp;
+                prev=curr;
             }
-            temp=temp.next;
+            curr=curr.next;
         }
         return dummy.next;
     }
