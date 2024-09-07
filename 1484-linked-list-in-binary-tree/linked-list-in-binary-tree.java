@@ -25,17 +25,16 @@
  */
 class Solution {
     public boolean isSubPath(ListNode head, TreeNode root) {
-        if (root == null) return false;
-        // Check if path starts from current root, or explore left and right subtrees
-        return dfs(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
-    }
+        if(root==null)return false;
 
-    public boolean dfs(ListNode curr, TreeNode root) {
-        if (curr == null) return true;  // Reached end of the linked list
-        if (root == null) return false; // Reached end of the tree branch
-        if (curr.val != root.val) return false; // Mismatch in values
-        
-        // Continue matching the next list node with the tree's left or right child
-        return dfs(curr.next, root.left) || dfs(curr.next, root.right);
+        return dfs(head,root)|| isSubPath(head,root.left) || isSubPath(head,root.right);
+    }
+    public boolean dfs(ListNode curr,TreeNode root){
+        if(curr==null)return true;
+        if(root==null)return false;
+
+       if(curr.val!=root.val)return false;
+
+       return dfs(curr.next,root.left) || dfs(curr.next,root.right);
     }
 }
