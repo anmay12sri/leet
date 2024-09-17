@@ -3,6 +3,7 @@ class Solution {
         String word1[]=s1.split(" ");
         String word2[]=s2.split(" ");
         Map<String,Integer>map=new HashMap<>();
+
         for(String word:word1){
             map.put(word,map.getOrDefault(word,0)+1);
         }
