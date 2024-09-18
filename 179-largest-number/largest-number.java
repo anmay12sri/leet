@@ -6,13 +6,14 @@ class Solution {
             elements[i]=Integer.toString(nums[i]);
         }
 
-        Arrays.sort(elements,new Comparator<String>(){
-            public int compare(String a,String b){
-               String first=a+b;
-               String sec=b+a;
-               return sec.compareTo(first); 
-            }
-        });
+        // Arrays.sort(elements,new Comparator<String>(){
+        //     public int compare(String a,String b){
+        //        String first=a+b;
+        //        String sec=b+a;
+        //        return sec.compareTo(first); 
+        //     }
+        // });
+        Arrays.sort(elements,(a,b)->(b+a).compareTo(a+b));
         //special case
         if(elements[0].equals("0")){
             return "0";
