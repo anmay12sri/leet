@@ -18,10 +18,11 @@ class Solution {
             return "0";
         }
 
-        String res="";
+        // String res="";
+        StringBuilder st=new StringBuilder();
         for(String x:elements){
-            res+=x;
+            st.append(x);
         }
-        return res;
+        return st.toString();
     }
 }
