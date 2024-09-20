@@ -1,12 +1,22 @@
 class Solution {
     public String shortestPalindrome(String s) {
-       final String t=new StringBuilder(s).reverse().toString();
+      int i=0;
+      int j=s.length()-1;
 
-       for(int i=0;i<s.length();i++){
-        if(s.startsWith(t.substring(i))){
-            return t.substring(0,i)+s;
-        }
+       while(j>=0){
+        if(s.charAt(i)==s.charAt(j)){
+         i++;
+       }  
+       j--;
        }
-       return t+s;
+       if(i==s.length()){
+        return s;
+       }
+
+       String suffix=s.substring(i);
+       String prefix=new StringBuilder(suffix).reverse().toString();
+       String mid=shortestPalindrome(s.substring(0,i));
+
+       return prefix + mid + suffix;
     }
 }
