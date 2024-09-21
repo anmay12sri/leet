@@ -10,10 +10,10 @@ class Solution {
         if(curr>n){
             return ;
         }
-        res.add(curr);
+        res.add(curr); //curr n se chota toh pehle hi add ho jayega
         for(int i=0;i<=9;i++){
-            if(curr*10+i > n)break;
-            solve(curr*10+i,n,res);
+            if(curr*10+i > n)break; // ek particular series ka number bda huya n se toh break
+            solve(curr*10+i,n,res);// nahi toh recursive call krke usko bhi add kr lenge
         }
     }
 }
