@@ -8,12 +8,13 @@ class Solution {
     }
     public void solve(int curr,int n,List<Integer>res){
         if(curr>n){
-            return ;
+            return;
         }
-        res.add(curr); //curr n se chota toh pehle hi add ho jayega
+        res.add(curr);
+
         for(int i=0;i<=9;i++){
-            if(curr*10+i > n)break; // ek particular series ka number bda huya n se toh break
-            solve(curr*10+i,n,res);// nahi toh recursive call krke usko bhi add kr lenge
+            if(curr*10+i > n)break;
+              solve(curr*10+i,n,res);
         }
     }
 }
