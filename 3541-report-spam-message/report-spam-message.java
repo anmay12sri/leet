@@ -13,10 +13,10 @@ class Solution {
                 count++;
             }
             if(count>=2){
-                return true;
+                return true;// spam
             }
         }
-        return false;
+        return false;//otherwise if no spam
         
     }
 }
