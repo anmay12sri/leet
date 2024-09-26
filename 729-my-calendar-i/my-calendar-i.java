@@ -1,16 +1,15 @@
 class MyCalendar {
     private ArrayList<int[]>bookings;
-
     public MyCalendar() {
         bookings=new ArrayList<>();
     }
     
     public boolean book(int start, int end) {
         for(int event[]:bookings){
-            int existingstart=event[0];
-            int existingend=event[1];
+            int existstart=event[0];
+            int existend=event[1];
 
-            if(start< existingend && end>existingstart){
+            if(start<existend && end>existstart ){
                 return false;
             }
         }
