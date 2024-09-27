@@ -1,19 +1,16 @@
 class MyCalendar {
-    private ArrayList<int[]>bookings;
+     List<int[]>booking;
     public MyCalendar() {
-        bookings=new ArrayList<>();
+        booking=new ArrayList<>();
     }
     
     public boolean book(int start, int end) {
-        for(int event[]:bookings){
-            int existstart=event[0];
-            int existend=event[1];
-
-            if(start<existend && end>existstart ){
+        for(int event[]:booking){
+            if(Math.max(start,event[0]) < Math.min(end,event[1])){
                 return false;
             }
         }
-        bookings.add(new int[]{start,end});
+        booking.add(new int[]{start,end});
         return true;
     }
 }
