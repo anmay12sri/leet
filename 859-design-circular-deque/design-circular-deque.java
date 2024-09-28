@@ -1,10 +1,9 @@
 class MyCircularDeque {
-    static Deque<Integer>d;
-    int size;
-
+     static Deque<Integer>d;
+     int size;
     public MyCircularDeque(int k) {
-        d=new LinkedList<>();
-          size=k;
+       d=new LinkedList<>();
+       size=k; 
     }
     
     public boolean insertFront(int value) {
@@ -16,19 +15,19 @@ class MyCircularDeque {
     }
     
     public boolean insertLast(int value) {
-         if(d.size()<size){
+        if(d.size()<size){
             d.addLast(value);
             return true;
-         }
-         return false;
+        }
+        return false;
     }
     
     public boolean deleteFront() {
-         if(d.size()>0){
+        if(d.size()>0){
             d.removeFirst();
             return true;
-         }
-         return false;
+        }
+        return false;
     }
     
     public boolean deleteLast() {
@@ -54,7 +53,7 @@ class MyCircularDeque {
     }
     
     public boolean isEmpty() {
-        if(d.size()==0){
+        if(d.size()<=0){
             return true;
         }
         return false;
