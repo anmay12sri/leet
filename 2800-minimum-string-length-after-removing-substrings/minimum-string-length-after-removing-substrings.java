@@ -1,21 +1,18 @@
 class Solution {
     public int minLength(String s) {
-        char arr[] = s.toCharArray();
-        int n = arr.length;
-        int ind = -1;
-        for(int i = 0; i < n; i++) {
-            char ch = arr[i];
-            if(ind == -1) {
-                ind++;
-                arr[ind] = ch;
-            }
-            else if(ch == 'B' && arr[ind] == 'A') ind--;
-            else if(ch == 'D' && arr[ind] == 'C') ind--;
-            else {
-                ind++;
-                arr[ind] = ch;
-            }
-        }
-        return ind + 1;
+        Stack<Character>st=new Stack<>();
+       for(int i=0;i<s.length();i++){
+         char ch=s.charAt(i);
+          if(!st.isEmpty() && ch=='B' && st.peek()=='A'){
+            st.pop(); 
+          }
+          else if(!st.isEmpty() && ch=='D' && st.peek()=='C'){
+            st.pop();
+          }else{
+            st.push(ch);
+          }
+           
+       }
+       return st.size();
     }
 }
