@@ -1,20 +1,20 @@
 class Solution {
     public int maxUniqueSplit(String s) {
-        return backtrack(0, s, new HashSet<>());
+        return backtrack(s,new HashSet<>(),0);
     }
-    private int backtrack(int start, String s, HashSet<String> seen) {
-        if (start == s.length()) {
-            return 0; 
+    public int backtrack(String s, Set<String>set,int ind){
+        if(ind==s.length()){
+            return 0;
         }
-        int maxSplits = 0;
-        for (int end = start + 1; end <= s.length(); end++) {
-            String substring = s.substring(start, end);
-            if (!seen.contains(substring)) {
-                seen.add(substring); 
-                maxSplits = Math.max(maxSplits, 1 + backtrack(end, s, seen));
-                seen.remove(substring);
+        int max=0;
+        for(int i=ind+1;i<=s.length();i++){
+            String substr=s.substring(ind,i);
+            if(!set.contains(substr)){
+                set.add(substr);
+                max=Math.max(max,1+backtrack(s,set,i));
+            set.remove(substr);
             }
         }
-        return maxSplits;
+        return max;
     }
 }
